@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BriefcaseBusiness, Clock3, Mail, MapPin, MessageCircle, Phone, UsersRound } from "lucide-react";
 
@@ -98,7 +99,7 @@ function ContactPage() {
   );
 }
 
-function Support({ icon: Icon, title, text, cta }: { icon: typeof UsersRound; title: string; text: string; cta: React.ReactNode }) {
+function Support({ icon: Icon, title, text, cta }: { icon: typeof UsersRound; title: string; text: string; cta: ReactNode }) {
   return (
     <article className="flex gap-5 rounded-lg border border-border bg-background p-6 sm:p-8">
       <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-accent-soft text-primary"><Icon className="size-6" aria-hidden="true" /></div>

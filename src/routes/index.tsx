@@ -39,14 +39,14 @@ function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-mist">
         {/* Full panoramic photo at its natural ratio (no cropping); mirrored so the worker sits on the right, away from the text */}
-        <div className="relative hidden md:ml-auto md:block md:w-[72%]">
+        <div className="relative hidden lg:ml-auto lg:block lg:w-[72%]">
           <img src={heroImg} alt="Skilled worker in a hard hat looking over an international port as a plane flies overhead" width={1600} height={1008} className="block h-auto w-full -scale-x-100" />
           <div className="absolute inset-y-0 left-0 w-2/5 bg-[linear-gradient(90deg,var(--brand-mist),color-mix(in_oklab,var(--brand-mist)_55%,transparent)_45%,transparent)]" aria-hidden="true" />
         </div>
-        <div className="site-container py-14 md:absolute md:inset-0 md:flex md:items-center md:py-0">
-          <div className="max-w-xl md:max-w-md lg:max-w-xl">
+        <div className="site-container py-14 lg:absolute lg:inset-0 lg:flex lg:items-center lg:py-0">
+          <div className="max-w-xl">
             <p className="eyebrow">Overseas recruitment & manpower placement</p>
-            <h1 className="mt-4 text-5xl font-extrabold leading-[1.02] tracking-tight text-brand-deep md:text-5xl lg:text-7xl">Global Opportunities<br /><span className="text-accent">Real Careers</span></h1>
+            <h1 className="mt-4 text-5xl font-extrabold leading-[1.02] tracking-tight text-brand-deep lg:text-6xl xl:text-7xl">Global Opportunities<br /><span className="text-accent">Real Careers</span></h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">We connect skilled and hardworking Indian professionals with genuine overseas employment across Romania, Croatia, Bulgaria, Albania, Serbia and Moldova.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg"><Link to="/vacancies">View Vacancies <ArrowRight aria-hidden="true" /></Link></Button>
@@ -54,7 +54,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <img src={heroImg} alt="" width={1600} height={1008} className="block h-auto w-full md:hidden" />
+        <img src={heroImg} alt="" width={1600} height={1008} className="block h-auto w-full lg:hidden" />
       </section>
 
       {/* Trust strip */}
