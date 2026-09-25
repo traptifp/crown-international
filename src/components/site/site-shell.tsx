@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Clock3,
   FileCheck2,
+  Mail,
   MapPin,
   Menu,
   MessageCircle,
@@ -180,6 +181,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" /> Mohali, Punjab, India – 160055</li>
             <li><a href="tel:+919878603703" className="flex items-center gap-3 hover:text-primary"><Phone className="size-4 shrink-0 text-accent" /> 9878603703</a></li>
+            <li><a href="mailto:crownips409@gmail.com" className="flex items-center gap-3 hover:text-primary"><Mail className="size-4 shrink-0 text-accent" /> crownips409@gmail.com</a></li>
             <li className="flex items-center gap-3"><Clock3 className="size-4 shrink-0 text-accent" /> 9:30 AM – 6:00 PM</li>
           </ul>
           <Button asChild variant="whatsapp" className="mt-5">

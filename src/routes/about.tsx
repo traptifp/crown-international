@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, ClipboardList, Eye, FileCheck2, Gem, Handshake, LifeBuoy, Plane, Search, Target, UserPlus, Users } from "lucide-react";
+import { CheckCircle2, ClipboardList, Eye, FileCheck2, Gem, LifeBuoy, Plane, Search, Target, UserPlus, Users } from "lucide-react";
 
 import heroImg from "@/assets/about-hero.jpg";
 import storyImg from "@/assets/about-story.jpg";
@@ -117,7 +117,6 @@ function AboutPage() {
       </section>
 
       <ImageCta image={ctaImg} eyebrow="Let's build better futures together" title="Start Your Global Journey" text="Explore current opportunities or get in touch with our team." primary={{ label: "View Vacancies", to: "/vacancies" }} />
-      <span className="sr-only"><Handshake /></span>
     </main>
   );
 }
