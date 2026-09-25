@@ -39,7 +39,7 @@ function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-mist">
         <img src={heroImg} alt="Skilled worker in a hard hat looking over an international port as a plane flies overhead" width={1600} height={1008} className="absolute inset-y-0 right-0 hidden h-full w-[60%] object-cover md:block" />
-        <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--brand-mist)_40%,color-mix(in_oklab,var(--brand-mist)_65%,transparent)_55%,transparent_75%)] md:block" aria-hidden="true" />
+        <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--brand-mist)_38%,color-mix(in_oklab,var(--brand-mist)_40%,transparent)_46%,transparent_58%)] md:block" aria-hidden="true" />
         <div className="site-container relative py-14 md:py-24 lg:py-28">
           <div className="max-w-xl">
             <p className="eyebrow">Overseas recruitment & manpower placement</p>
