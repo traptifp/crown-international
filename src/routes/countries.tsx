@@ -41,7 +41,7 @@ function CountriesPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-sm text-muted-foreground">Available roles depend on confirmed employer requirements at any given time.</p>
+          <p className="mt-8 text-sm text-muted-foreground">Available roles depend on confirmed employer requirements and current vacancies.</p>
         </div>
       </section>
 
