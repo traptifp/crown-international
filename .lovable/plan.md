@@ -30,23 +30,23 @@ Main navigation: Home, About Us, Vacancies, Countries, Job Categories, Candidate
 
 ## 3. Global chrome
 
-- **Utility bar** (thin, quiet): Reg. No. B-3117/PUN/PER/100/5/11122/2025 · Approved by the Government of India, Ministry of External Affairs · Working Hours 9:30 AM – 6:00 PM · social icons. Collapses to essentials on mobile.
-- **Header:** supplied logo used as-is, nav, Register Now, WhatsApp button. Sticky, current page underlined.
-- **Footer:** logo + tagline "People | Opportunities | A Brighter Tomorrow", quick links (incl. Credentials / Licence), contact block, social, WhatsApp button, copyright, Privacy and Terms.
+- **Utility bar** (thin, quiet): Reg. No. B-3117/PUN/PER/100/5/11122/2025 · Approved by the Government of India, Ministry of External Affairs · Working Hours 9:30 AM – 6:00 PM. Collapses to essentials on mobile; no social links until verified URLs are supplied.
+- **Header:** supplied logo used exactly as provided, nav, Register Now, WhatsApp button linked to 9878603703. Sticky, current page underlined.
+- **Footer:** logo + tagline "People | Opportunities | A Brighter Tomorrow", quick links (incl. Credentials / Licence), verified contact block with phone/WhatsApp 9878603703, WhatsApp button, copyright, Privacy and Terms. No social placeholders.
 
 ## 4. Page intent (layouts vary; no repeated template)
 
-- **Home** — hero with clear positioning and primary CTAs; short trust strip drawn only from verified facts (since 2016, MEA-approved, six countries); what we do; countries preview; job categories preview; candidates vs employers split; how we work; closing CTA band.
+- **Home** — follow the newly supplied approved Home screenshot as the primary composition reference while removing unsupported sample vacancies/testimonials and correcting outdated facts; retain its hero, trust strip, search/empty-vacancy area, countries, candidate/employer split, about, categories and closing CTA rhythm.
 - **About Us** — headline statement, our story since 2016, mission/vision/values, what we do with image band, how we work steps, CTA.
 - **Vacancies** — hero, filter row (country / category / employment type), results list, professional empty state at launch ("No vacancies listed right now — register your interest"), browse-by-category strip, sidebar with assistance/quick links, CTA.
-- **Vacancy detail** — breadcrumb, title with country/category/type tags, description, responsibilities, requirements, benefits, sticky application form, job details table, related vacancies, CTA. Renders entirely from one vacancy record.
+- **Vacancy detail** — breadcrumb, title with country/category/type tags, description, responsibilities, requirements, benefits, prominent non-sticky application area, job details table, related vacancies, CTA. Final placement follows the approved reference while preserving a spacious reading experience; all content renders from one vacancy record.
 - **Countries We Serve** — Romania, Croatia, Bulgaria, Albania, Serbia, Moldova as image cards with short notes; why work there; CTA band.
 - **Job Categories** — category cards with imagery and short descriptions; why these categories; CTA.
 - **Candidates** — hero, what to expect, how it works, registration form section, FAQ.
 - **Employers / B2B** — hero, why partner, recruitment process, industries served, partnership enquiry form with image band, FAQ.
 - **Credentials / Licence** — verified registration details only: certificate number, RA ID, entity type, RC holder, issue date, validity window, worker limit, approved MEA wording, operating focus. No certificate image.
 - **Contact Us** — hero, contact methods row, message form, location and map link, direct support split for candidates vs employers, FAQ.
-- **Privacy / Terms** — clean readable documents, generic and non-committal, marked for legal review.
+- **Privacy / Terms** — create only the page structure and visual treatment, clearly marking final legal wording as pending supplied approved copy.
 
 ## 5. Vacancy data
 
@@ -68,8 +68,8 @@ Deliberate, varied photography per section — international workplaces, travel,
 
 ## 9. Build order
 
-1. Design system, utility bar, header, footer
-2. Home
+1. **Current approved stage only:** design system, utility bar, global header/navigation, global footer and core reusable components; then stop for review
+2. Home, following the approved Home screenshot
 3. About Us
 4. Countries, Job Categories
 5. Vacancies list + detail template + empty state
@@ -80,20 +80,21 @@ Deliberate, varied photography per section — international workplaces, travel,
 
 ## A. Buildable immediately
 
-Everything above: all twelve pages, full design system, forms as frontend-only, empty vacancy system, credentials page from the verified details.
+The complete twelve-page website is specified, but the next implementation is deliberately limited to the shared foundation: design system, utility bar, global header/navigation, global footer and core reusable components. Individual pages will not be built until that foundation is reviewed.
 
 ## B. Needs confirmation
 
-- **Phone number conflict:** the brief states 9878603703; the reference screenshots show +91 98766 43210. Which is correct?
-- Full street address beyond "Mohali, Punjab, India – 160055", if you want one shown.
-- Social profile links (LinkedIn, Facebook, Instagram, YouTube) — placeholders otherwise omitted.
-- Real vacancy listings when available.
-- Privacy Policy and Terms content — I will write reasonable general wording for your review, not legal advice.
+- Full street address beyond "Mohali, Punjab, India – 160055", if one should be shown.
+- Verified social profile URLs; all social icons and placeholders remain omitted until supplied.
+- Real vacancy listings when available; the data remains an empty list meanwhile.
+- Approved Privacy Policy and Terms wording; only their page structure and visual treatment will be prepared beforehand.
 - Whether an approved certificate image may be published later.
 
 ## C. Decisions to review
 
 - Form submissions are currently non-functional by instruction; decide the destination (email, WhatsApp, database) before launch.
-- Home reference screenshot was not supplied, so its composition is my judgement within the established system.
-- Gulf countries appear in some reference copy, but only the six European countries are confirmed — I will keep wording to the confirmed six.
-- Vacancies managed by editing a data file for now; a database-backed admin can come later if you want to update listings yourself.
+- The supplied approved Home screenshot is now the primary visual reference for that page.
+- Only Romania, Croatia, Bulgaria, Albania, Serbia and Moldova will appear; unsupported Gulf-country wording in older screenshots will not be repeated.
+- Vacancies remain an empty local data list; no fictional or sample vacancy content will be created.
+- The confirmed phone and WhatsApp number is 9878603703 everywhere; the conflicting screenshot number will never be used.
+- Vacancies can move to managed storage later only if requested; no dashboards, accounts, portals or marketplace systems are included.
