@@ -8,7 +8,7 @@ const inputCls = "mt-1.5 w-full rounded-md border border-input bg-background px-
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE = /^[+\d][\d\s-]{7,15}$/;
 
-function Field({ id, label, error, children, className = "" }: { id: string; label: string; error?: string; children: ReactNode; className?: string }) {
+function Field({ id, label, error, children, className = "" }: { id: string; label: string; error?: string | undefined; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
       <label htmlFor={id} className="text-sm font-medium text-brand-deep">{label} <span className="text-destructive" aria-hidden="true">*</span></label>
@@ -48,7 +48,7 @@ export function CandidateForm({ prefix = "cand", submitLabel = "Register Now" }:
     else if (!/\.(pdf|docx?)$/i.test(file.name)) err[id("cv")] = "CV must be a PDF, DOC or DOCX file.";
     else if (file.size > 5 * 1024 * 1024) err[id("cv")] = "CV must be 5 MB or smaller.";
     setErrors(err);
-    if (Object.keys(err).length) { document.getElementById(Object.keys(err)[0])?.focus(); return; }
+    if (Object.keys(err).length) { document.getElementById(Object.keys(err)[0] ?? "")?.focus(); return; }
     setDone(true);
   }
 
@@ -90,7 +90,7 @@ export function EmployerForm() {
     if (!PHONE.test(g("phone"))) err["emp-phone"] = "Please enter a valid phone number.";
     if (g("req").length < 10) err["emp-req"] = "Please describe your requirements (roles, numbers, location).";
     setErrors(err);
-    if (Object.keys(err).length) { document.getElementById(Object.keys(err)[0])?.focus(); return; }
+    if (Object.keys(err).length) { document.getElementById(Object.keys(err)[0] ?? "")?.focus(); return; }
     setDone(true);
   }
 
