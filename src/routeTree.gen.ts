@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CandidatesRouteImport } from './routes/candidates'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CountriesRouteImport } from './routes/countries'
+import { Route as CredentialsRouteImport } from './routes/credentials'
+import { Route as EmployersRouteImport } from './routes/employers'
+import { Route as JobCategoriesRouteImport } from './routes/job-categories'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as VacanciesRouteImport } from './routes/vacancies'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CandidatesRoute = CandidatesRouteImport.update({
+  id: '/candidates',
+  path: '/candidates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CountriesRoute = CountriesRouteImport.update({
+  id: '/countries',
+  path: '/countries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CredentialsRoute = CredentialsRouteImport.update({
+  id: '/credentials',
+  path: '/credentials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployersRoute = EmployersRouteImport.update({
+  id: '/employers',
+  path: '/employers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobCategoriesRoute = JobCategoriesRouteImport.update({
+  id: '/job-categories',
+  path: '/job-categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VacanciesRoute = VacanciesRouteImport.update({
+  id: '/vacancies',
+  path: '/vacancies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/candidates': typeof CandidatesRoute
+  '/contact': typeof ContactRoute
+  '/countries': typeof CountriesRoute
+  '/credentials': typeof CredentialsRoute
+  '/employers': typeof EmployersRoute
+  '/job-categories': typeof JobCategoriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/vacancies': typeof VacanciesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/candidates': typeof CandidatesRoute
+  '/contact': typeof ContactRoute
+  '/countries': typeof CountriesRoute
+  '/credentials': typeof CredentialsRoute
+  '/employers': typeof EmployersRoute
+  '/job-categories': typeof JobCategoriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/vacancies': typeof VacanciesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/candidates': typeof CandidatesRoute
+  '/contact': typeof ContactRoute
+  '/countries': typeof CountriesRoute
+  '/credentials': typeof CredentialsRoute
+  '/employers': typeof EmployersRoute
+  '/job-categories': typeof JobCategoriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/vacancies': typeof VacanciesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/candidates'
+    | '/contact'
+    | '/countries'
+    | '/credentials'
+    | '/employers'
+    | '/job-categories'
+    | '/privacy'
+    | '/terms'
+    | '/vacancies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/candidates'
+    | '/contact'
+    | '/countries'
+    | '/credentials'
+    | '/employers'
+    | '/job-categories'
+    | '/privacy'
+    | '/terms'
+    | '/vacancies'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/candidates'
+    | '/contact'
+    | '/countries'
+    | '/credentials'
+    | '/employers'
+    | '/job-categories'
+    | '/privacy'
+    | '/terms'
+    | '/vacancies'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CandidatesRoute: typeof CandidatesRoute
+  ContactRoute: typeof ContactRoute
+  CountriesRoute: typeof CountriesRoute
+  CredentialsRoute: typeof CredentialsRoute
+  EmployersRoute: typeof EmployersRoute
+  JobCategoriesRoute: typeof JobCategoriesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
+  VacanciesRoute: typeof VacanciesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/candidates': {
+      id: '/candidates'
+      path: '/candidates'
+      fullPath: '/candidates'
+      preLoaderRoute: typeof CandidatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/countries': {
+      id: '/countries'
+      path: '/countries'
+      fullPath: '/countries'
+      preLoaderRoute: typeof CountriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credentials': {
+      id: '/credentials'
+      path: '/credentials'
+      fullPath: '/credentials'
+      preLoaderRoute: typeof CredentialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employers': {
+      id: '/employers'
+      path: '/employers'
+      fullPath: '/employers'
+      preLoaderRoute: typeof EmployersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/job-categories': {
+      id: '/job-categories'
+      path: '/job-categories'
+      fullPath: '/job-categories'
+      preLoaderRoute: typeof JobCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vacancies': {
+      id: '/vacancies'
+      path: '/vacancies'
+      fullPath: '/vacancies'
+      preLoaderRoute: typeof VacanciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CandidatesRoute: CandidatesRoute,
+  ContactRoute: ContactRoute,
+  CountriesRoute: CountriesRoute,
+  CredentialsRoute: CredentialsRoute,
+  EmployersRoute: EmployersRoute,
+  JobCategoriesRoute: JobCategoriesRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
+  VacanciesRoute: VacanciesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

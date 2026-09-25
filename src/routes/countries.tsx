@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PendingPage } from "@/components/site/site-shell";
+export const Route = createFileRoute("/countries")({ head: () => ({ meta: [{ title: "Countries We Serve — Crown International" }, { name: "description", content: "Explore Crown International placement opportunities across six European countries." }, { property: "og:title", content: "Countries We Serve — Crown International" }, { property: "og:description", content: "Placement opportunities across Romania, Croatia, Bulgaria, Albania, Serbia and Moldova." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PendingPage title="Countries We Serve" /> });

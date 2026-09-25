@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PendingPage } from "@/components/site/site-shell";
+export const Route = createFileRoute("/contact")({ head: () => ({ meta: [{ title: "Contact Us — Crown International" }, { name: "description", content: "Contact Crown International Placement Service in Mohali, Punjab." }, { property: "og:title", content: "Contact Crown International" }, { property: "og:description", content: "Contact Crown International Placement Service in Mohali, Punjab." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PendingPage title="Contact Us" /> });
