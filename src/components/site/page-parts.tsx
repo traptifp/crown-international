@@ -28,32 +28,58 @@ export function CountryFlag({ id, className = "h-5 w-8" }: { id: CountryId; clas
   return <svg viewBox="0 0 3 2" className={`${className} shrink-0 rounded-[2px] ring-1 ring-border`} aria-hidden="true" preserveAspectRatio="none">{flags[id]}</svg>;
 }
 
-export function Breadcrumb({ current }: { current: string }) {
+export function Breadcrumb({ current, parent }: { current: string; parent?: { label: string; to: "/vacancies" } }) {
   return (
     <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted-foreground">
       <Link to="/" className="hover:text-primary">Home</Link>
       <ChevronRight className="size-3.5" aria-hidden="true" />
+      {parent ? <><Link to={parent.to} className="hover:text-primary">{parent.label}</Link><ChevronRight className="size-3.5" aria-hidden="true" /></> : null}
       <span aria-current="page" className="text-foreground">{current}</span>
     </nav>
   );
 }
 
-export function PageHero({ crumb, eyebrow, title, accent, text, image, imageAlt }: { crumb: string; eyebrow?: string; title: ReactNode; accent?: ReactNode; text: string; image: string; imageAlt: string }) {
+export function PageHero({ crumb, eyebrow, title, accent, text, image, imageAlt, children, imagePosition = "object-center" }: { crumb: string; eyebrow?: string; title: ReactNode; accent?: ReactNode; text: string; image: string; imageAlt: string; children?: ReactNode; imagePosition?: string }) {
   return (
     <section className="relative overflow-hidden bg-brand-mist">
-      <img src={image} alt={imageAlt} width={1408} height={912} className="absolute inset-y-0 right-0 hidden h-full w-[62%] object-cover md:block" />
-      <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--brand-mist)_38%,color-mix(in_oklab,var(--brand-mist)_70%,transparent)_52%,transparent_72%)] md:block" aria-hidden="true" />
-      <div className="site-container relative py-12 md:py-20 lg:py-24">
+      <img src={image} alt={imageAlt} width={1408} height={912} className={`absolute inset-y-0 right-0 hidden h-full w-[60%] object-cover md:block ${imagePosition}`} />
+      <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--brand-mist)_40%,color-mix(in_oklab,var(--brand-mist)_70%,transparent)_54%,transparent_72%)] md:block" aria-hidden="true" />
+      <div className="site-container relative py-12 md:min-h-[440px] md:py-20 lg:min-h-[500px] lg:py-24">
         <Breadcrumb current={crumb} />
-        <div className="mt-8 max-w-xl">
+        <div className="mt-10 max-w-xl">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-deep sm:text-5xl lg:text-6xl">
+          <h1 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-deep sm:text-5xl lg:text-[3.75rem]">
             {title}{accent ? <><br /><span className="text-accent">{accent}</span></> : null}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">{text}</p>
+          <p className="mt-6 max-w-lg text-lg leading-8 text-muted-foreground">{text}</p>
+          {children ? <div className="mt-8 flex flex-wrap gap-3">{children}</div> : null}
         </div>
       </div>
-      <img src={image} alt="" width={1408} height={912} className="aspect-[16/10] w-full object-cover md:hidden" />
+      <img src={image} alt="" width={1408} height={912} className={`aspect-[16/10] w-full object-cover md:hidden ${imagePosition}`} />
+    </section>
+  );
+}
+
+export function ProcessSteps({ title, text, steps }: { title: string; text: string; steps: { icon: typeof HardHat; label: string; text: string }[] }) {
+  return (
+    <section className="py-16 lg:py-24">
+      <div className="site-container">
+        <h2 className="text-3xl font-bold text-brand-deep sm:text-4xl">{title}</h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">{text}</p>
+        <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {steps.map(({ icon: Icon, label, text: t }, i) => (
+            <li key={label} className="relative">
+              <div className="flex items-center gap-4">
+                <span className="grid size-9 place-items-center rounded-full bg-accent-soft text-sm font-bold text-primary">{i + 1}</span>
+                <Icon className="size-9 text-accent" strokeWidth={1.5} aria-hidden="true" />
+                {i < steps.length - 1 ? <ArrowRight className="ml-auto hidden size-5 text-accent/60 lg:block" aria-hidden="true" /> : null}
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-brand-deep">{label}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{t}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   );
 }
@@ -80,7 +106,7 @@ export function ValueStrip({ title, text, items }: { title: string; text: string
   );
 }
 
-export function ImageCta({ image, eyebrow, title, text, primary }: { image: string; eyebrow?: string; title: string; text: string; primary: { label: string; to: "/vacancies" | "/candidates" | "/contact" } }) {
+export function ImageCta({ image, eyebrow, title, text, primary }: { image: string; eyebrow?: string; title: string; text: string; primary: { label: string; to: "/vacancies" | "/candidates" | "/contact" | "/employers" } }) {
   return (
     <section className="relative overflow-hidden bg-brand-deep text-brand-deep-foreground">
       <img src={image} alt="" loading="lazy" width={1920} height={640} className="absolute inset-0 h-full w-full object-cover object-right" />

@@ -19,7 +19,8 @@ import { Route as EmployersRouteImport } from './routes/employers'
 import { Route as JobCategoriesRouteImport } from './routes/job-categories'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as VacanciesRouteImport } from './routes/vacancies'
+import { Route as VacanciesIndexRouteImport } from './routes/vacancies.index'
+import { Route as VacanciesSlugRouteImport } from './routes/vacancies.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -71,9 +72,14 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VacanciesRoute = VacanciesRouteImport.update({
-  id: '/vacancies',
-  path: '/vacancies',
+const VacanciesIndexRoute = VacanciesIndexRouteImport.update({
+  id: '/vacancies/',
+  path: '/vacancies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VacanciesSlugRoute = VacanciesSlugRouteImport.update({
+  id: '/vacancies/$slug',
+  path: '/vacancies/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -88,7 +94,8 @@ export interface FileRoutesByFullPath {
   '/job-categories': typeof JobCategoriesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/vacancies': typeof VacanciesRoute
+  '/vacancies/$slug': typeof VacanciesSlugRoute
+  '/vacancies/': typeof VacanciesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -101,7 +108,8 @@ export interface FileRoutesByTo {
   '/job-categories': typeof JobCategoriesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/vacancies': typeof VacanciesRoute
+  '/vacancies/$slug': typeof VacanciesSlugRoute
+  '/vacancies': typeof VacanciesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -115,7 +123,8 @@ export interface FileRoutesById {
   '/job-categories': typeof JobCategoriesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/vacancies': typeof VacanciesRoute
+  '/vacancies/$slug': typeof VacanciesSlugRoute
+  '/vacancies/': typeof VacanciesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,7 +139,8 @@ export interface FileRouteTypes {
     | '/job-categories'
     | '/privacy'
     | '/terms'
-    | '/vacancies'
+    | '/vacancies/$slug'
+    | '/vacancies/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/job-categories'
     | '/privacy'
     | '/terms'
+    | '/vacancies/$slug'
     | '/vacancies'
   id:
     | '__root__'
@@ -156,7 +167,8 @@ export interface FileRouteTypes {
     | '/job-categories'
     | '/privacy'
     | '/terms'
-    | '/vacancies'
+    | '/vacancies/$slug'
+    | '/vacancies/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -170,7 +182,8 @@ export interface RootRouteChildren {
   JobCategoriesRoute: typeof JobCategoriesRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
-  VacanciesRoute: typeof VacanciesRoute
+  VacanciesSlugRoute: typeof VacanciesSlugRoute
+  VacanciesIndexRoute: typeof VacanciesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,11 +258,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/vacancies': {
-      id: '/vacancies'
+    '/vacancies/': {
+      id: '/vacancies/'
       path: '/vacancies'
-      fullPath: '/vacancies'
-      preLoaderRoute: typeof VacanciesRouteImport
+      fullPath: '/vacancies/'
+      preLoaderRoute: typeof VacanciesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vacancies/$slug': {
+      id: '/vacancies/$slug'
+      path: '/vacancies/$slug'
+      fullPath: '/vacancies/$slug'
+      preLoaderRoute: typeof VacanciesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -266,7 +286,8 @@ const rootRouteChildren: RootRouteChildren = {
   JobCategoriesRoute: JobCategoriesRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
-  VacanciesRoute: VacanciesRoute,
+  VacanciesSlugRoute: VacanciesSlugRoute,
+  VacanciesIndexRoute: VacanciesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
