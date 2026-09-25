@@ -138,6 +138,7 @@ export function SiteHeader() {
                 </div>
                 <div className="mt-8 space-y-3 border-t border-border pt-5 text-sm text-muted-foreground">
                   <a href="tel:+919878603703" className="flex items-center gap-3 hover:text-primary"><Phone className="size-4 text-accent" /> 9878603703</a>
+                  <a href="mailto:crownips409@gmail.com" className="flex items-center gap-3 hover:text-primary"><Mail className="size-4 text-accent" /> crownips409@gmail.com</a>
                 </div>
               </div>
             </SheetContent>

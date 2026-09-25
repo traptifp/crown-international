@@ -22,7 +22,7 @@ function Done({ onReset, text }: { onReset: () => void; text: string }) {
   return (
     <div role="status" className="flex flex-col items-start gap-4 py-6">
       <CheckCircle2 className="size-10 text-success" aria-hidden="true" />
-      <h3 className="text-xl font-bold text-brand-deep">Thank you — your details are ready</h3>
+      <h3 className="text-xl font-bold text-brand-deep">Thank you — your details look complete</h3>
       <p className="text-sm leading-6 text-muted-foreground">{text}</p>
       <Button variant="outline" onClick={onReset}>Start again</Button>
     </div>
@@ -52,7 +52,7 @@ export function CandidateForm({ prefix = "cand", submitLabel = "Register Now" }:
     setDone(true);
   }
 
-  if (done) return <Done onReset={() => { setDone(false); setFile(null); }} text="Our team reviews registrations against current employer requirements. For a quicker response, you can also reach us on WhatsApp at 9878603703." />;
+  if (done) return <Done onReset={() => { setDone(false); setFile(null); }} text="Online submission is not yet active, so please share your details and CV with our team directly on WhatsApp at 9878603703 or by email at crownips409@gmail.com." />;
 
   return (
     <form noValidate onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
@@ -94,7 +94,7 @@ export function EmployerForm() {
     setDone(true);
   }
 
-  if (done) return <Done onReset={() => setDone(false)} text="Our team will review your requirements. To discuss them straight away, contact us on WhatsApp or call 9878603703." />;
+  if (done) return <Done onReset={() => setDone(false)} text="Online submission is not yet active, so please send your requirements directly to crownips409@gmail.com or contact us on WhatsApp / phone at 9878603703." />;
 
   return (
     <form noValidate onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
@@ -109,6 +109,43 @@ export function EmployerForm() {
       <div className="sm:col-span-2">
         <Button type="submit" size="lg">Submit Enquiry <ArrowRight aria-hidden="true" /></Button>
         <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground"><Lock className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />Your details are used only for business communication about your enquiry.</p>
+      </div>
+    </form>
+  );
+}
+
+export function ContactForm() {
+  const [errors, setErrors] = useState<Errors>({});
+  const [done, setDone] = useState(false);
+  function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    const g = (k: string) => String(f.get(`con-${k}`) ?? "").trim();
+    const err: Errors = {};
+    if (g("name").length < 2) err["con-name"] = "Please enter your name.";
+    if (!EMAIL.test(g("email"))) err["con-email"] = "Please enter a valid email address.";
+    if (!PHONE.test(g("phone"))) err["con-phone"] = "Please enter a valid phone number.";
+    if (!g("subject")) err["con-subject"] = "Please choose a subject.";
+    if (g("message").length < 10) err["con-message"] = "Please write a message of at least 10 characters.";
+    setErrors(err);
+    if (Object.keys(err).length) { document.getElementById(Object.keys(err)[0] ?? "")?.focus(); return; }
+    setDone(true);
+  }
+  if (done) return <Done onReset={() => setDone(false)} text="Online submission is not yet active, so your message has not been sent. Please email it to crownips409@gmail.com or contact us on WhatsApp / phone at 9878603703." />;
+  return (
+    <form noValidate onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
+      <Field id="con-name" label="Full Name" error={errors["con-name"]}><input {...a("con-name", errors)} autoComplete="name" placeholder="Enter your full name" className={inputCls} /></Field>
+      <Field id="con-email" label="Email Address" error={errors["con-email"]}><input {...a("con-email", errors)} type="email" autoComplete="email" placeholder="Enter your email address" className={inputCls} /></Field>
+      <Field id="con-phone" label="Phone Number" error={errors["con-phone"]}><input {...a("con-phone", errors)} type="tel" autoComplete="tel" placeholder="+91 Enter your phone number" className={inputCls} /></Field>
+      <Field id="con-subject" label="Subject" error={errors["con-subject"]}>
+        <select {...a("con-subject", errors)} defaultValue="" className={inputCls}>
+          <option value="">Select a subject</option><option>Candidate enquiry</option><option>Employer / B2B enquiry</option><option>Vacancy question</option><option>General enquiry</option>
+        </select>
+      </Field>
+      <Field id="con-message" label="Message" error={errors["con-message"]} className="sm:col-span-2"><textarea {...a("con-message", errors)} rows={5} placeholder="Type your message here" className={inputCls} /></Field>
+      <div className="sm:col-span-2">
+        <Button type="submit" size="lg">Send Message <ArrowRight aria-hidden="true" /></Button>
+        <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground"><Lock className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />Your details are used only to respond to your enquiry.</p>
       </div>
     </form>
   );
