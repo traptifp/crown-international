@@ -41,7 +41,7 @@ function HomePage() {
         {/* Full panoramic photo at its natural ratio (no cropping); mirrored so the worker sits on the right, away from the text */}
         <div className="relative hidden lg:ml-auto lg:block lg:w-[72%]">
           <img src={heroImg} alt="Skilled worker in a hard hat looking over an international port as a plane flies overhead" width={1600} height={1008} className="block h-auto w-full -scale-x-100" />
-          <div className="absolute inset-y-0 left-0 w-2/5 bg-[linear-gradient(90deg,var(--brand-mist),color-mix(in_oklab,var(--brand-mist)_55%,transparent)_45%,transparent)]" aria-hidden="true" />
+          <div className="absolute inset-y-0 -left-px w-1/2 bg-[linear-gradient(90deg,var(--brand-mist)_8%,color-mix(in_oklab,var(--brand-mist)_60%,transparent)_45%,transparent)]" aria-hidden="true" />
         </div>
         <div className="site-container py-14 lg:absolute lg:inset-0 lg:flex lg:items-center lg:py-0">
           <div className="max-w-xl">
