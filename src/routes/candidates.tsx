@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PendingPage } from "@/components/site/site-shell";
+export const Route = createFileRoute("/candidates")({ head: () => ({ meta: [{ title: "Candidates — Crown International" }, { name: "description", content: "Register your interest in overseas career opportunities." }, { property: "og:title", content: "Candidates — Crown International" }, { property: "og:description", content: "Register your interest in overseas career opportunities." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PendingPage title="Candidates" /> });

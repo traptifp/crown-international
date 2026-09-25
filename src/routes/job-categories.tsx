@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PendingPage } from "@/components/site/site-shell";
+export const Route = createFileRoute("/job-categories")({ head: () => ({ meta: [{ title: "Job Categories — Crown International" }, { name: "description", content: "Browse overseas recruitment job categories." }, { property: "og:title", content: "Job Categories — Crown International" }, { property: "og:description", content: "Browse overseas recruitment job categories." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <PendingPage title="Job Categories" /> });
